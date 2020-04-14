@@ -1,0 +1,19 @@
+# creates a postgre sql server and an adminer instance at port 8080
+# Use root/toor as user/password credentials
+
+version: "2"
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  db:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: toor

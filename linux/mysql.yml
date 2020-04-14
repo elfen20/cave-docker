@@ -1,0 +1,18 @@
+# creates a mysql server and an adminer instance at port 8080
+# Use root/toor as user/password credentials
+
+version: "2"
+
+services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  db:
+    image: mysql:5.6
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
